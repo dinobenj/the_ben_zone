@@ -131,3 +131,51 @@ button:hover {
 a:link {
     text-decoration: underline;
 }
+
+/* We love copy paste holy*/
+/* Container for the cube */
+.cube-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    animation: spinCube 5s infinite linear;
+}
+
+/* Keyframes for spinning cube */
+@keyframes spinCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* Cube faces */
+.cube {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+}
+
+/* Position each face of the cube */
+.cube .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #fbbf24; /* border-yellow-300 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Positioning each face */
+.cube .front  { transform: translateZ(100px); background-color: #f87171; }
+.cube .back   { transform: rotateY(180deg) translateZ(100px); background-color: #fbbf24; }
+.cube .left   { transform: rotateY(-90deg) translateZ(100px); background-color: #34d399; }
+.cube .right  { transform: rotateY(90deg) translateZ(100px); background-color: #60a5fa; }
+.cube .top    { transform: rotateX(90deg) translateZ(100px); background-color: #9333ea; }
+.cube .bottom { transform: rotateX(-90deg) translateZ(100px); background-color: #facc15; }
+
