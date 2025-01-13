@@ -52,6 +52,21 @@ section {
     margin-bottom: 2rem;
 }
 
+.about-section {
+    margin-bottom: 2rem; /* mb-8 */
+    border: 2px solid #2f8555; /* border-green-800 */
+    padding: 1rem; /* p-4 */
+    background-color: #2d3748; /* bg-green-900 */
+    color: #fefcbf; /* text-yellow-300 */
+}
+
+.about-section h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: bold; /* font-bold */
+    border-bottom: 2px solid #fbbf24; /* border-yellow-300 */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
 section h2 {
     font-size: 1.5rem;
     font-weight: bold;
