@@ -4,27 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE BEN ZONE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.8.4/dist/htmx.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- OBLIGATORY SCROLLING MARQUEE -->
+    <marquee class="top-marquee" scrollamount="12" behavior="scroll">
+        ★★★ WELCOME TO THE BEN ZONE ★★★ YOU ARE VISITOR #<span id="marquee-counter">?????</span> ★★★ SIGN THE GUESTBOOK ★★★ THIS SITE IS UNDER CONSTRUCTION ★★★ BEST VIEWED AT 800x600 IN NETSCAPE NAVIGATOR 4.0 ★★★ NO FRAMES!! ★★★
+    </marquee>
+
     <header>
-        <h1>THE BEN ZONE</h1>
+        <div class="header-flames">
+            <img src="gifs/flames.gif" alt="flames" class="flame-strip">
+        </div>
+        <div class="title-row">
+            <img src="gifs/skull.gif" alt="skull" width="80">
+            <h1 class="wordart"><span>T</span><span>H</span><span>E</span>&nbsp;<span>B</span><span>E</span><span>N</span>&nbsp;<span>Z</span><span>O</span><span>N</span><span>E</span></h1>
+            <img src="gifs/skull.gif" alt="skull" width="80">
+        </div>
+        <img src="gifs/welcome.gif" alt="Welcome" class="welcome-gif">
         <nav>
             <!-- Navigation Buttons -->
+            <img src="gifs/new.gif" alt="NEW!" class="new-badge">
             <button hx-get="about.html" hx-target="#content">About</button>
             <button hx-get="projects.html" hx-target="#content">Projects</button>
             <button hx-get="experience.html" hx-target="#content">Experience</button>
             <button hx-get="resume.html" hx-target="#content">Resume</button>
             <button hx-get="my_favorite_links.html" hx-target="#content">MY LINKS</button>
+            <button hx-get="blog.html" hx-target="#content" class="blog-tab">blog</button>
+            <img src="gifs/new.gif" alt="NEW!" class="new-badge">
         </nav>
+        <div class="header-flames">
+            <img src="gifs/flames.gif" alt="flames" class="flame-strip">
+        </div>
     </header>
+
+    <div class="side-gif side-left">
+        <img src="gifs/alien.gif" alt="dancing alien">
+        <img src="gifs/dancing-baby.gif" alt="dancing baby" width="110">
+        <img src="gifs/hamtaro.gif" alt="hamster" width="90">
+    </div>
+    <div class="side-gif side-right">
+        <img src="gifs/spinning-globe.gif" alt="spinning globe">
+        <img src="gifs/starburst.gif" alt="spinning star" width="100">
+        <img src="gifs/computer.gif" alt="computer">
+    </div>
 
     <main>
         <div id="content">
             <section>
-                <h2 class="text-4xl font-bold mb-4 text-center text-yellow-300">I LOVE FRONTEND</h2>
+                <h2 class="rainbow-text blink">I LOVE FRONTEND</h2>
             </section>
 
             <!-- Spinning 3D Cube -->
@@ -39,11 +71,87 @@
                 </div>
             </div>
         </div>
+
+        <img src="gifs/rainbow-bar.gif" alt="rainbow divider" class="rainbow-divider">
+
+        <!-- HIT COUNTER -->
+        <div class="hit-counter">
+            <img src="gifs/spinning-globe.gif" alt="globe" width="40">
+            <div>
+                <p class="counter-label blink">☆ YOU ARE VISITOR NUMBER ☆</p>
+                <div class="counter-digits" id="hit-counter">0000000</div>
+                <p class="counter-label">since 04/17/1999</p>
+            </div>
+            <img src="gifs/spinning-globe.gif" alt="globe" width="40">
+        </div>
+
+        <!-- GUESTBOOK + WEBRING NONSENSE -->
+        <div class="retro-extras">
+            <img src="gifs/under-construction.gif" alt="under construction">
+            <img src="gifs/guestbook.gif" alt="view and sign my guestbook">
+            <a href="mailto:dino.benj@gmail.com" class="email-link">
+                <img src="gifs/email-bear.gif" alt="email me"><span class="blink">EMAIL ME!!!</span>
+            </a>
+            <img src="gifs/under-construction.gif" alt="under construction">
+        </div>
+
+        <marquee class="bottom-marquee" direction="right" scrollamount="8">
+            <img src="gifs/banana.gif" alt="banana"> this page is certified Y2K compliant <img src="gifs/banana.gif" alt="banana"> please do not steal my graphics i made them myself <img src="gifs/banana.gif" alt="banana"> get out of my swamp <img src="gifs/banana.gif" alt="banana">
+        </marquee>
     </main>
-    
 
     <footer>
-        <p>&copy; THE POOP DELI INC; ALL RIGHTS RESERVED</p>
+        <img src="gifs/flames.gif" alt="flames" class="flame-strip">
+        <div class="footer-row">
+            <img src="gifs/dancing-poop.gif" alt="the manager" width="90">
+            <p>&copy; THE POOP DELI INC; ALL RIGHTS RESERVED</p>
+            <img src="gifs/dancing-poop.gif" alt="the manager" width="90">
+        </div>
+        <!-- 88x31 BUTTON WALL -->
+        <div class="button-wall">
+            <img src="gifs/btn-netscape-now.gif" alt="Netscape Now!">
+            <img src="gifs/btn-best800x600.gif" alt="Best viewed 800x600">
+            <img src="gifs/btn-built-with-microsoft-notepad.gif" alt="Built with Notepad">
+            <img src="gifs/btn-geocities.gif" alt="GeoCities">
+            <img src="gifs/btn-got-html.gif" alt="Got HTML?">
+            <img src="gifs/btn-cssvalid.gif" alt="Valid CSS">
+            <img src="gifs/btn-winamp.gif" alt="Winamp">
+            <img src="gifs/btn-anybrowser.gif" alt="Any browser">
+            <img src="gifs/btn-aolsux.gif" alt="AOL sux">
+            <img src="gifs/btn-y2k.gif" alt="Y2K ready">
+            <img src="gifs/btn-hotdog.gif" alt="Hot Dog">
+            <img src="gifs/btn-hamsterbuddies.gif" alt="Hamster Buddies">
+            <img src="gifs/btn-construction.gif" alt="Under construction">
+            <img src="gifs/btn-guestbookani.gif" alt="Guestbook">
+            <img src="gifs/btn-email.gif" alt="Email">
+        </div>
+        <p class="best-viewed blink">&lt;&lt; This site is best viewed at 800x600 with the lights off &gt;&gt;</p>
     </footer>
+
+    <script>
+        // Flashing tab title, like every serious website in 2002
+        const titles = ['THE BEN ZONE', '*** THE BEN ZONE ***', '>>> THE BEN ZONE <<<', '!!! THE BEN ZONE !!!'];
+        let t = 0;
+        setInterval(() => { document.title = titles[t = (t + 1) % titles.length]; }, 700);
+
+        // Extremely legitimate hit counter
+        const hits = 1337420 + Math.floor((Date.now() / 86400000) % 10000) + Math.floor(Math.random() * 50);
+        const padded = String(hits).padStart(7, '0');
+        document.getElementById('hit-counter').textContent = padded;
+        document.getElementById('marquee-counter').textContent = padded;
+
+        // Sparkle cursor trail
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.4) return;
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            s.textContent = ['✦', '✧', '★', '☆', '✶'][Math.floor(Math.random() * 5)];
+            s.style.left = (e.pageX + (Math.random() * 16 - 8)) + 'px';
+            s.style.top = (e.pageY + (Math.random() * 16 - 8)) + 'px';
+            s.style.color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 65%)`;
+            document.body.appendChild(s);
+            setTimeout(() => s.remove(), 900);
+        });
+    </script>
 </body>
 </html>

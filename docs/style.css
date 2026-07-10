@@ -1,149 +1,486 @@
-/* Base styles */
+/* ============================================================
+   THE BEN ZONE — now with 100% more 1999
+   ============================================================ */
+
 body {
     background-color: #000000;
-    color: #a3d9a5; /* Light green */
-    font-family: 'Courier New', monospace;
+    background-image: url('gifs/stars-bg.gif');
+    background-repeat: repeat;
+    color: #00ff00;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    cursor: crosshair;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-/* Header styles */
-header {
-    background-color: #2f4f30; /* Dark green */
-    color: #f0e68c; /* Light yellow */
-    padding: 1rem;
-    border-bottom: 4px solid #2e8b57; /* Darker green */
-    text-align: center;
+/* ---------- blink & rainbow, the two food groups ---------- */
+
+.blink {
+    animation: blink 0.8s steps(1) infinite;
 }
 
-header h1 {
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.rainbow-text {
     font-size: 2.5rem;
     font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-slide 2s linear infinite;
 }
 
+@keyframes rainbow-slide {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+}
+
+/* ---------- marquees ---------- */
+
+.top-marquee {
+    background: repeating-linear-gradient(45deg, #ff00ff, #ff00ff 20px, #ffff00 20px, #ffff00 40px);
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 4px 0;
+    border-bottom: 3px ridge #00ffff;
+    text-shadow: 1px 1px 0 #ffffff;
+}
+
+.bottom-marquee {
+    color: #ff69b4;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-shadow: 0 0 6px #ff00ff;
+}
+
+.bottom-marquee img {
+    vertical-align: middle;
+}
+
+/* ---------- header ---------- */
+
+header {
+    background: repeating-linear-gradient(90deg, #4b0082, #4b0082 30px, #2a0048 30px, #2a0048 60px);
+    text-align: center;
+    border-bottom: 6px ridge #ff00ff;
+    padding-bottom: 0.5rem;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* WordArt-grade title */
+.wordart {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 0.5rem 0;
+    color: #ffff00;
+    text-shadow:
+        3px 3px 0 #ff00ff,
+        6px 6px 0 #00ffff,
+        9px 9px 12px #000000;
+    animation: hue-spin 3s linear infinite;
+}
+
+.wordart span {
+    display: inline-block;
+    animation: bounce-letter 0.9s ease-in-out infinite;
+}
+
+.wordart span:nth-child(odd)  { animation-delay: 0.15s; }
+.wordart span:nth-child(3n)   { animation-delay: 0.3s; }
+.wordart span:nth-child(4n)   { animation-delay: 0.45s; }
+
+@keyframes bounce-letter {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50%      { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes hue-spin {
+    100% { filter: hue-rotate(360deg); }
+}
+
+.welcome-gif {
+    margin: 0.25rem auto;
+    display: block;
+}
+
+.flame-strip {
+    width: 100%;
+    height: 40px;
+    object-fit: cover;
+    display: block;
+}
+
+.new-badge {
+    vertical-align: middle;
+    animation: blink 0.6s steps(1) infinite;
+}
+
+/* nav buttons: maximum bevel */
 header nav button {
-    background-color: #f0e68c; /* Light yellow */
-    color: #2f4f30; /* Dark green */
+    background: linear-gradient(180deg, #ff69b4, #ff1493);
+    color: #ffff00;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
     padding: 0.5rem 1.5rem;
-    margin: 0.5rem;
-    border-radius: 0.375rem; /* Rounded corners */
-    border: none;
-    font-size: 1rem;
+    margin: 0.5rem 0.25rem;
+    border: 5px outset #ff69b4;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-shadow: 1px 1px 0 #000000;
 }
 
 header nav button:hover {
-    background-color: #ffd700; /* Golden yellow */
-    color: #2f4f30;
+    background: linear-gradient(180deg, #00ffff, #0000ff);
+    border-color: #00ffff;
+    animation: shake 0.15s linear infinite;
 }
 
-/* Main content styles */
+header nav button:active {
+    border-style: inset;
+}
+
+@keyframes shake {
+    0%   { transform: translate(1px, 1px) rotate(1deg); }
+    50%  { transform: translate(-1px, -1px) rotate(-1deg); }
+    100% { transform: translate(1px, -1px) rotate(0deg); }
+}
+
+/* ---------- floating side gifs ---------- */
+
+.side-gif {
+    position: fixed;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 5;
+}
+
+.side-left  { left: 8px; }
+.side-right { right: 8px; }
+
+@media (max-width: 1100px) {
+    .side-gif { display: none; }
+}
+
+/* ---------- main content ---------- */
+
 main {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 2rem auto;
     padding: 0 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 section {
-    background-color: #2f4f30; /* Dark green */
-    color: #f0e68c; /* Light yellow */
+    background-color: #4b0082;
+    color: #ffff00;
     padding: 1rem;
-    border-radius: 0.375rem;
-    border: 2px solid #2e8b57; /* Darker green */
+    border: 8px ridge #00ffff;
     margin-bottom: 2rem;
-}
-
-.about-section {
-    margin-bottom: 2rem; /* mb-8 */
-    border: 2px solid #2f8555; /* border-green-800 */
-    padding: 1rem; /* p-4 */
-    background-color: #2d3748; /* bg-green-900 */
-    color: #fefcbf; /* text-yellow-300 */
-}
-
-.about-section h2 {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: bold; /* font-bold */
-    border-bottom: 2px solid #fbbf24; /* border-yellow-300 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    box-shadow: 0 0 25px #ff00ff;
 }
 
 section h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    border-bottom: 2px solid #ffd700; /* Golden yellow */
+    border-bottom: 3px dashed #ff00ff;
     margin-bottom: 1rem;
 }
 
-/* Footer styles */
-footer {
-    background-color: #2f4f30; /* Dark green */
-    color: #f0e68c; /* Light yellow */
+.retro-box {
+    background-color: #4b0082;
+    color: #ffff00;
     padding: 1rem;
-    border-top: 4px solid #2e8b57; /* Darker green */
+    border: 8px ridge #00ffff;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 25px #ff00ff;
+}
+
+.retro-box h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #00ff00;
+    text-shadow: 2px 2px 0 #ff00ff;
+    border-bottom: 3px dashed #ff00ff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.gif-row {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.gif-row img {
+    vertical-align: middle;
+    margin: 0 0.75rem;
+}
+
+.rainbow-divider {
+    display: block;
+    width: 100%;
+    height: 12px;
+    margin: 1.5rem 0;
+}
+
+/* ---------- hit counter ---------- */
+
+.hit-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #000033;
+    border: 6px double #00ff00;
+    padding: 1rem;
+    margin: 1.5rem auto;
     text-align: center;
 }
 
-/* List item styles */
+.counter-label {
+    color: #ff69b4;
+    font-weight: bold;
+    margin: 0.25rem 0;
+}
+
+.counter-digits {
+    font-family: 'Courier New', monospace;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00ff00;
+    background-color: #000000;
+    border: 3px inset #555555;
+    padding: 0.25rem 1rem;
+    letter-spacing: 0.5rem;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* ---------- guestbook / extras ---------- */
+
+.retro-extras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.email-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #00ffff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+    background: repeating-linear-gradient(90deg, #4b0082, #4b0082 30px, #2a0048 30px, #2a0048 60px);
+    color: #ffff00;
+    border-top: 6px ridge #ff00ff;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.button-wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 1rem auto;
+    max-width: 600px;
+}
+
+.button-wall img {
+    image-rendering: pixelated;
+    border: 1px solid #00ff00;
+}
+
+.best-viewed {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ff0000;
+}
+
+/* ---------- sparkle cursor trail ---------- */
+
+.sparkle {
+    position: absolute;
+    pointer-events: none;
+    font-size: 14px;
+    z-index: 9999;
+    animation: sparkle-fall 0.9s ease-out forwards;
+}
+
+@keyframes sparkle-fall {
+    0%   { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(28px) scale(0.3); }
+}
+
+/* ---------- lists & links ---------- */
+
 ul {
     padding-left: 1.5rem;
+    list-style: none;
 }
 
 ul li {
-    background-color: #3e5d43; /* Darker green */
+    background-color: #2a0048;
+    color: #00ff00;
     padding: 1rem;
-    border-radius: 0.375rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 4px dotted #ff69b4;
     margin-bottom: 1rem;
-    transition: background-color 0.3s ease;
 }
 
 ul li:hover {
-    background-color: #4a7c58; /* Slightly lighter green */
+    background-color: #ff00ff;
+    color: #000000;
+    border-style: dashed;
 }
 
 ul li h3 {
     font-size: 1.25rem;
     font-weight: bold;
+    margin: 0 0 0.25rem 0;
 }
 
 ul li p {
     font-size: 1rem;
+    margin: 0.25rem 0;
 }
 
-/* Button styles */
-button {
-    background-color: #f0e68c; /* Light yellow */
-    color: #2f4f30; /* Dark green */
-    padding: 0.5rem 1.5rem;
-    margin: 0.5rem;
-    border-radius: 0.375rem; /* Rounded corners */
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+a:link    { color: #00ffff; text-decoration: underline; }
+a:visited { color: #ff00ff; }
+a:hover   { color: #ffff00; background-color: #ff0000; }
+
+/* ---------- blog: the quiet room ---------- */
+
+.blog {
+    font-family: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    background: transparent;
+    color: #f2efe8;
+    max-width: 34rem;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.08em;
 }
 
-button:hover {
-    background-color: #ffd700; /* Golden yellow */
-    color: #2f4f30;
+.blog h2 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.5em;
+    text-transform: lowercase;
+    border-bottom: 1px solid rgba(242, 239, 232, 0.25);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
 }
 
-a:link {
-    text-decoration: underline;
+.blog-sub {
+    font-size: 0.8rem;
+    color: rgba(242, 239, 232, 0.55);
+    margin: 0 0 3rem 0;
+    letter-spacing: 0.2em;
 }
 
-/* We love copy paste holy*/
-/* Container for the cube */
+.blog-post {
+    margin-bottom: 3rem;
+}
+
+.blog-post time {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(242, 239, 232, 0.45);
+    letter-spacing: 0.25em;
+    margin-bottom: 0.25rem;
+}
+
+.blog-post h3 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.15em;
+}
+
+.blog-post p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(242, 239, 232, 0.85);
+}
+
+.blog a:link,
+.blog a:visited {
+    color: #f2efe8;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(242, 239, 232, 0.4);
+}
+
+.blog a:hover {
+    color: #ffffff;
+    background: transparent;
+    border-bottom-color: #ffffff;
+}
+
+/* the quiet room's door stays quiet */
+header nav button.blog-tab {
+    background: transparent;
+    border: 1px solid rgba(242, 239, 232, 0.5);
+    color: #f2efe8;
+    font-family: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-weight: 300;
+    text-shadow: none;
+    letter-spacing: 0.3em;
+}
+
+header nav button.blog-tab:hover {
+    background: rgba(242, 239, 232, 0.12);
+    border-color: #f2efe8;
+    animation: none;
+}
+
+/* ---------- the cube abides (now radioactive) ---------- */
+
 .cube-container {
     position: relative;
     width: 200px;
     height: 200px;
-    margin: 0 auto;
+    margin: 2rem auto;
     transform-style: preserve-3d;
     animation: spinCube 5s infinite linear;
 }
 
-/* Keyframes for spinning cube */
 @keyframes spinCube {
     0% {
         transform: rotateX(0deg) rotateY(0deg);
@@ -153,7 +490,6 @@ a:link {
     }
 }
 
-/* Cube faces */
 .cube {
     position: absolute;
     width: 200px;
@@ -161,21 +497,19 @@ a:link {
     transform-style: preserve-3d;
 }
 
-/* Position each face of the cube */
 .cube .face {
     position: absolute;
     width: 200px;
     height: 200px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #fbbf24; /* border-yellow-300 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px dashed #ffffff;
+    box-shadow: 0 0 30px currentColor;
+    opacity: 0.9;
+    animation: hue-spin 2s linear infinite;
 }
 
-/* Positioning each face */
-.cube .front  { transform: translateZ(100px); background-color: #f87171; }
-.cube .back   { transform: rotateY(180deg) translateZ(100px); background-color: #fbbf24; }
-.cube .left   { transform: rotateY(-90deg) translateZ(100px); background-color: #34d399; }
-.cube .right  { transform: rotateY(90deg) translateZ(100px); background-color: #60a5fa; }
-.cube .top    { transform: rotateX(90deg) translateZ(100px); background-color: #9333ea; }
-.cube .bottom { transform: rotateX(-90deg) translateZ(100px); background-color: #facc15; }
-
+.cube .front  { transform: translateZ(100px); background-color: #ff0000; }
+.cube .back   { transform: rotateY(180deg) translateZ(100px); background-color: #ffff00; }
+.cube .left   { transform: rotateY(-90deg) translateZ(100px); background-color: #00ff00; }
+.cube .right  { transform: rotateY(90deg) translateZ(100px); background-color: #00ffff; }
+.cube .top    { transform: rotateX(90deg) translateZ(100px); background-color: #ff00ff; }
+.cube .bottom { transform: rotateX(-90deg) translateZ(100px); background-color: #ff8800; }
